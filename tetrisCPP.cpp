@@ -1,20 +1,30 @@
-// tetrisCPP.cpp : This file contains the 'main' function. Program execution begins and ends there.
-//
-
+// Calling main libraries
 #include <iostream>
+#include <thread>
+#include <vector>
 
-int main()
-{
-    std::cout << "Hello World!\n";
+// Calling namespace
+using namespace std;
+
+// Calling extra libraries
+#include <stdio.h>
+#include <windows.h>
+
+// Defining the screen to 80*30
+int nScreenWidth = 80;
+int nScreenWidth = 30;
+
+wstring tetromino[7];
+
+int nFieldWidth = 12;
+int nFieldHeight = 18;
+unsigned char* pField = nullptr;
+
+int Rotate(int px, int py, int r) {
+	int pi = 0;
+	switch (r % 4) {
+		// 0 degrees
+		case 0:
+
+	}
 }
-
-// Run program: Ctrl + F5 or Debug > Start Without Debugging menu
-// Debug program: F5 or Debug > Start Debugging menu
-
-// Tips for Getting Started: 
-//   1. Use the Solution Explorer window to add/manage files
-//   2. Use the Team Explorer window to connect to source control
-//   3. Use the Output window to see build output and other messages
-//   4. Use the Error List window to view errors
-//   5. Go to Project > Add New Item to create new code files, or Project > Add Existing Item to add existing code files to the project
-//   6. In the future, to open this project again, go to File > Open > Project and select the .sln file
