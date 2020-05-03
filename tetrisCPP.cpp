@@ -81,4 +81,10 @@ int main() {
 			pField[y * nFieldWidth + x] = (x == 0 || x == nFieldWidth - 1 || y == nFieldHeight - 1) ? 9 : 0;
 
 	// Game algorithm
+	bool bKey[4];
+	int nCurrentPiece = 0;
+	int nCurrentRotation = 0;
+	int nCurrentX = nFieldWidth / 2;
+	int nCurrentY = 0;
+
 }
