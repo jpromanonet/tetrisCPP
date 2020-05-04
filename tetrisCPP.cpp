@@ -86,5 +86,16 @@ int main() {
 	int nCurrentRotation = 0;
 	int nCurrentX = nFieldWidth / 2;
 	int nCurrentY = 0;
+	int nSpeed = 20;
+	int nSpeedCount = 0;
+	int bForceDown = false;
+	int bRotateHold = true;
+	int nPieceCount = 0;
+	int nScore = 0;
+	vector<int> vLines;
+	bool bGameOver = false;
 
+	while (!bGameOver) {
+
+	}
 }
