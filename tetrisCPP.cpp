@@ -96,6 +96,44 @@ int main() {
 	bool bGameOver = false;
 
 	while (!bGameOver) {
+		// Timer
+		this_thread::sleep_for(50ms);
+		nSpeedCount++;
+		bForceDown = (nSpeedCount == nSpeed);
+
+		// Gamer input
+		for(int k = 0; k < 4; k++)
+			bKey[k] = (0x8000 & GetAsyncKeyState((unsigned char)("\x27\x25\x28Z"[k]))) != 0;
+
+		// Player movements
+		nCurrentX += (bKey[0] && DoesPieceFit(nCurrentPiece, nCurrentRotation, nCurrentX + 1, nCurrentY)) ? 1 : 0;
+		nCurrentX -= (bKey[1] && DoesPieceFit(nCurrentPiece, nCurrentRotation, nCurrentX - 1, nCurrentY)) ? 1 : 0;
+		nCurrentY += (bKey[2] && DoesPieceFit(nCurrentPiece, nCurrentRotation, nCurrentX, nCurrentY + 1)) ? 1 : 0;
+
+		// Rotate, but latch to stop wild spinning of the piece
+		if (bKey[3])
+		{
+			nCurrentRotation += (bRotateHold && DoesPieceFit(nCurrentPiece, nCurrentRotation + 1, nCurrentX, nCurrentY)) ? 1 : 0;
+			bRotateHold = false;
+		}
+		else
+			bRotateHold = true;
+
+		// Now we force the piece down the field it's the timer is up
+		if(bForceDown) {
+			// Up the level every fifty pieces, more tetrominos! wiii! yay!
+			nSpeedCount = 0;
+			nPieceCount++;
+			if (nPieceCount % 50 == 0)
+				if (nSpeed >= 10) nSpeed--;
+
+			// Testing the piece for latching down, if not keep going
+			if (DoesPieceFit(nCurrentPiece, nCurrentRotation, nCurrentX, nCurrentY + 1))
+				nCurrentY++; // There is not latching, keep going my friend!
+			else {
+
+			}
+		}
 
 	}
 }
