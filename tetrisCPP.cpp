@@ -131,6 +131,9 @@ int main() {
 			if (DoesPieceFit(nCurrentPiece, nCurrentRotation, nCurrentX, nCurrentY + 1))
 				nCurrentY++; // There is not latching, keep going my friend!
 			else {
+				// Can't keep going, lock the piece and shoot to trill!!
+				for(int px = 0; px < 4; px++)
+					for(int py = 0; py < 4; py++)
 
 			}
 		}
