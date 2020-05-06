@@ -132,9 +132,10 @@ int main() {
 				nCurrentY++; // There is not latching, keep going my friend!
 			else {
 				// Can't keep going, lock the piece and shoot to trill!!
-				for(int px = 0; px < 4; px++)
-					for(int py = 0; py < 4; py++)
-
+				for (int px = 0; px < 4; px++)
+					for (int py = 0; py < 4; py++)
+						if (tetromino[nCurrentPiece][Rotate(px, py, nCurrentRotation)] != L'.')
+							pField[(nCurrentY + py) * nFieldWidth + (nCurrentX + px)] = nCurrentPiece + 1;
 			}
 		}
 
