@@ -169,6 +169,13 @@ int main() {
 		}
 
 		// Now we draw the game field and we're over!
+		// Let's draw the field!
 
+		for (int x = 0; x < nFieldWidth; x++)
+			for (int y = 0; y < nFieldHeight; y++)
+				screen[(y + 2) * nScreenWidth + (x + 2)] = L" ABCDEFG=#"[pField[y * nFieldWidth + x]];
+
+		// Now we draw the falling piece
+		
 	}
 }
