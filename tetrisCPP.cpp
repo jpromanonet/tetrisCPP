@@ -155,8 +155,20 @@ int main() {
 				nScore += 25;
 				if (!vLines.empty())
 					nScore += (1 << vLines.size()) * 100;
+
+				// Pick a new piece to keep playing
+				nCurrentX = nFieldWidth / 2;
+				nCurrentY = 0;
+				nCurrentRotation = 0;
+				nCurrentPiece = 0;
+
+				// If the piece doesn't fit the game is over!
+				bGameOver = !DoesPieceFit(nCurrentPiece, nCurrentRotation, nCurrentX, nCurrentY);
+
 			}
 		}
+
+		// Now we draw the game field and we're over!
 
 	}
 }
