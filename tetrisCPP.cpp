@@ -136,6 +136,25 @@ int main() {
 					for (int py = 0; py < 4; py++)
 						if (tetromino[nCurrentPiece][Rotate(px, py, nCurrentRotation)] != L'.')
 							pField[(nCurrentY + py) * nFieldWidth + (nCurrentX + px)] = nCurrentPiece + 1;
+
+				// Check for lines
+				for (int py = 0; py < 4; py++)
+					if (nCurrentY + py + nFieldHeight - 1) {
+						bool bLine = true;
+						for (int px = 1; px < nFieldWidth - 1; px++)
+							bLine &= (pField[(nCurrentY + py) * nFieldWidth + px]) != 0;
+
+						if (bLine) {
+							// Delete the new line to keep playing
+							for (int px = 1; px < nFieldWidth - 1; px++)
+								pField[(nCurrentY + py) * nFieldWidth + px] = 8;
+							vLines.push_back(nCurrentY + py);
+						}
+					}
+			
+				nScore += 25;
+				if (!vLines.empty())
+					nScore += (1 << vLines.size()) * 100;
 			}
 		}
 
