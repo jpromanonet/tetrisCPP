@@ -1,0 +1,2 @@
+C:\Users\jromano\Documents\git\tetrisCPP\Debug\tetrisCPP.exe
+C:\Users\jromano\Documents\git\tetrisCPP\Debug\tetrisCPP.pdb
